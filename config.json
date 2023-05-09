@@ -31,6 +31,13 @@
                     {
                         "path": "/trojan",
                         "dest": 3004
+                    },
+                    {
+                        "path": "/shadowsocks",
+                        "dest": 3005
+                    },
+                    {
+                        "dest": 3006
                     }
                 ]
             },
@@ -38,40 +45,21 @@
                 "network": "tcp"
             }
         },
-        { 
+        {
             "port": 3001,
             "listen": "127.0.0.1",
-            "protocol": "socks",
+            "protocol": "vless",
             "settings": {
                 "clients": [
                     {
-                        "level": 0
-                    }],
-                    "auth": "on", 
-                    "accounts": [ 
-                        { 
-                            "user": "123", 
-                            "pass": "321" 
-                        }]
-                    },
-            "streamSettings": {
-                "network": "tcp",
-                "security": "",
-                "tcpSettings": {
-                    "header": {
-                        "type": ""
+                        "id": "3ec2497f-cca9-4ce8-b754-bda0d00cfd55"
                     }
-                },
-                "tag": "socks"
-            },
-            "sniffing": {
-                "enabled": true,
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic"
                 ],
-                "metadataOnly": false
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none"
             }
         },
         {
@@ -91,7 +79,7 @@
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    "path": ""
+                    "path": "/vless"
                 }
             },
             "sniffing": {
@@ -119,7 +107,7 @@
             "streamSettings": {
                 "network": "ws",
                 "wsSettings": {
-                    "path": ""
+                    "path": "/vmess"
                 }
             },
             "sniffing": {
@@ -147,7 +135,7 @@
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    "path": ""
+                    "path": "/trojan"
                 }
             },
             "sniffing": {
@@ -158,6 +146,57 @@
                     "quic"
                 ],
                 "metadataOnly": false
+            }
+        },
+        {
+            "port": 3005,
+            "listen": "127.0.0.1",
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [
+                    {
+                        "method": "chacha20-ietf-poly1305",
+                        "password": "3ec2497f-cca9-4ce8-b754-bda0d00cfd55"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                    "path": "/shadowsocks"
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly": false
+            }
+        },
+        { 
+            "port": 3006,
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "settings": {
+                "clients": [
+                    {
+                        "level": 0
+                    }],
+                    "auth": "on", 
+                    "accounts": [ 
+                        { 
+                            "user": "123", 
+                            "pass": "321" 
+                        }]
+                    },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "",
+                "tag": "socks"
             }
         }
     ],
