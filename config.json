@@ -33,7 +33,6 @@
                         "dest": 3004
                     },
                     {
-                        "path": "/shadowsocks",
                         "dest": 3005
                     }
                 ]
@@ -148,28 +147,21 @@
         {
             "port": 3005,
             "listen": "127.0.0.1",
-            "protocol": "shadowsocks",
+            "protocol": "socks",
             "settings": {
                 "clients": [
                     {
-                        "method": "chacha20-ietf-poly1305",
-                        "password": "3ec2497f-cca9-4ce8-b754-bda0d00cfd55"
+                        "username": "123",
+                        "password": "321"
                     }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "ws",
-                "wsSettings": {
-                    "path": "/shadowsocks"
-                }
+                ]
             },
             "sniffing": {
                 "enabled": true,
                 "destOverride": [
                     "http",
                     "tls",
-                    "quic"
+                    "quic",
                 ],
                 "metadataOnly": false
             }
