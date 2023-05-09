@@ -31,9 +31,6 @@
                     {
                         "path": "/trojan",
                         "dest": 3004
-                    },
-                    {
-                        "dest": 3005
                     }
                 ]
             },
@@ -41,21 +38,40 @@
                 "network": "tcp"
             }
         },
-        {
+        { 
             "port": 3001,
             "listen": "127.0.0.1",
-            "protocol": "vless",
+            "protocol": "socks",
             "settings": {
                 "clients": [
                     {
-                        "id": "3ec2497f-cca9-4ce8-b754-bda0d00cfd55"
-                    }
-                ],
-                "decryption": "none"
-            },
+                        "level": 0
+                    }],
+                    "auth": "on", 
+                    "accounts": [ 
+                        { 
+                            "user": "123", 
+                            "pass": "321" 
+                        }]
+                    },
             "streamSettings": {
-                "network": "ws",
-                "security": "none"
+                "network": "tcp",
+                "security": "",
+                "tcpSettings": {
+                    "header": {
+                        "type": ""
+                    }
+                },
+                "tag": "socks"
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly": false
             }
         },
         {
@@ -75,7 +91,7 @@
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    "path": "/vless"
+                    "path": ""
                 }
             },
             "sniffing": {
@@ -103,7 +119,7 @@
             "streamSettings": {
                 "network": "ws",
                 "wsSettings": {
-                    "path": "/vmess"
+                    "path": ""
                 }
             },
             "sniffing": {
@@ -131,7 +147,7 @@
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    "path": "/trojan"
+                    "path": ""
                 }
             },
             "sniffing": {
@@ -140,28 +156,6 @@
                     "http",
                     "tls",
                     "quic"
-                ],
-                "metadataOnly": false
-            }
-        },
-        {
-            "port": 3005,
-            "listen": "127.0.0.1",
-            "protocol": "socks",
-            "settings": {
-                "clients": [
-                    {
-                        "username": "123",
-                        "password": "321"
-                    }
-                ]
-            },
-            "sniffing": {
-                "enabled": true,
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic",
                 ],
                 "metadataOnly": false
             }
