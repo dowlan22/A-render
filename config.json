@@ -177,26 +177,23 @@
                 "metadataOnly": false
             }
         },
-        { 
+        {
             "port": 3006,
             "listen": "127.0.0.1",
             "protocol": "socks",
             "settings": {
-                "clients": [
-                    {
-                        "level": 0
-                    }],
-                    "auth": "on", 
-                    "accounts": [ 
-                        { 
-                            "user": "123", 
-                            "pass": "321" 
-                        }]
-                    },
+              "auth": "on",
+              "accounts": [
+                {
+                  "username": "123",
+                  "password": "321"
+                }
+              ]
+            },
             "streamSettings": {
-                "network": "tcp",
-                "security": "",
-                "tag": "socks"
+              "network": "tcp",
+              "security": "",
+              "tag": "socks"
             }
         }
     ],
