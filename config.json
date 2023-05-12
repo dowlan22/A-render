@@ -185,7 +185,7 @@
               "auth": "on",
               "accounts": [
                 {
-                  "username": "123",
+                  "name": "123",
                   "password": "321"
                 }
               ]
