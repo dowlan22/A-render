@@ -192,11 +192,32 @@
             },
             "streamSettings": {
               "network": "tcp",
-              "udp": false,
+              "udp": true,
               "security": "",
               "tag": "socks"
             }
-        }
+        },
+        {
+            "tag": "socks5",
+            "port": 3007,
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "sniffing": {
+              "enabled": true,
+              "destOverride": [
+                "http",
+                "tls"
+              ]
+            },
+            "settings": {
+              "auth": "noauth",
+              "udp": true,
+              "ip": null,
+              "address": null,
+              "clients": null
+            },
+            "streamSettings": null
+          }
     ],
     "outbounds": [
         {
