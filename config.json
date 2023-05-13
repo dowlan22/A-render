@@ -182,16 +182,17 @@
             "listen": "127.0.0.1",
             "protocol": "socks",
             "settings": {
-              "auth": "on",
-              "accounts": [
+              "auth": "noauth",
+              "users": [
                 {
                   "name": "123",
-                  "password": "321"
+                  "pass": "321"
                 }
               ]
             },
             "streamSettings": {
               "network": "tcp",
+              "udp": false,
               "security": "",
               "tag": "socks"
             }
